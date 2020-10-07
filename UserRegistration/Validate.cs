@@ -10,8 +10,9 @@ namespace UserRegistration
         string regexLastName = "^[A-Z][a-z]{2,}$";
         string regexEmail = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)?[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
         string regexPhoneNo = "^[1-9][0-9]{1,2}[ ][1-9][0-9]{9}$";
-        string regexPassword = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()]{1}).{8,}$";
-        //[a-zA-Z0-9!@#$%^&*()]
+        string regexPassword = "^(?=.*[A-Z])(?=.*[0-9])[!@#$%^&*()]{1}[a-zA-Z0-9!@#$%^&*()]{8,}$";
+        
+        //"^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()]{1})[a-zA-Z0-9!@#$%^&*()]{8,}$";
         public void ValidateFirstName(string firstName)
         {
             if (Regex.IsMatch(firstName, regexFirstName) == true)
