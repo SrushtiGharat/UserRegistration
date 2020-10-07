@@ -9,6 +9,7 @@ namespace UserRegistration
         string regexFirstName = "^[A-Z][a-z]{2,}$";
         string regexLastName = "^[A-Z][a-z]{2,}$";
         string regexEmail = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)?[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
+        string regexPhoneNo = "^[1-9][0-9]{1,2}[ ][1-9][0-9]{9}$";
 
         public void ValidateFirstName(string firstName)
         {
@@ -45,6 +46,18 @@ namespace UserRegistration
             Console.WriteLine("Enter Email again");
             eMail = Console.ReadLine();
             ValidateEmail(eMail);
+        }
+        public void ValidatePhoneNo(string phoneNo)
+        {
+            if (Regex.IsMatch(phoneNo, regexPhoneNo) == true)
+            {
+                Console.WriteLine("Phone No is valid");
+                return;
+            }
+            Console.WriteLine("Phone No is invalid");
+            Console.WriteLine("Enter Phone No again");
+            phoneNo = Console.ReadLine();
+            ValidatePhoneNo(phoneNo);
         }
     }
 }
