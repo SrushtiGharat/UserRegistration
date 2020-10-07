@@ -10,6 +10,7 @@ namespace UserRegistration
         string regexLastName = "^[A-Z][a-z]{2,}$";
         string regexEmail = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)?[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
         string regexPhoneNo = "^[1-9][0-9]{1,2}[ ][1-9][0-9]{9}$";
+        string regexPassword = "^[a-zA-Z0-9!@#$%^&*()]{8,}$";
 
         public void ValidateFirstName(string firstName)
         {
@@ -58,6 +59,18 @@ namespace UserRegistration
             Console.WriteLine("Enter Phone No again");
             phoneNo = Console.ReadLine();
             ValidatePhoneNo(phoneNo);
+        }
+        public void ValidatePassword(string password)
+        {
+            if (Regex.IsMatch(password, regexPassword) == true)
+            {
+                Console.WriteLine("Password is valid");
+                return;
+            }
+            Console.WriteLine("Password is invalid");
+            Console.WriteLine("Enter Password again");
+            password = Console.ReadLine();
+            ValidatePassword(password);
         }
     }
 }

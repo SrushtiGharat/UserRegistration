@@ -24,6 +24,10 @@ namespace UserRegistration
             Console.WriteLine("Enter Phone No");
             string phoneNo = Console.ReadLine();
             validate.ValidatePhoneNo(phoneNo);
+
+            Console.WriteLine("Enter Password");
+            string password = Console.ReadLine();
+            validate.ValidatePassword(password);
         }
     }
 }
