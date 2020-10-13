@@ -7,40 +7,68 @@ namespace UserRegistration
         static void Main(string[] args)
         {
             Validate validate = new Validate();
-
+            string result;
             Console.WriteLine("Welcome To User Registration Program");
-            FirstName:
-            Console.WriteLine("Enter First Name");
-            string firstName = Console.ReadLine();
-            if (validate.ValidateFirstName(firstName) == false)
+        FirstName:
+            try
             {
+                Console.WriteLine("Enter First Name");
+                string firstName = Console.ReadLine();
+                result = validate.ValidateFirstName(firstName);
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Console.WriteLine(e.Message);
                 goto FirstName;
             }
-            LastName:
-            Console.WriteLine("Enter Last Name");
-            string lastName = Console.ReadLine();
-            if(validate.ValidateLastName(lastName) == false){
+        LastName:
+            try
+            {
+                Console.WriteLine("Enter Last Name");
+                string lastName = Console.ReadLine();
+                result = validate.ValidateLastName(lastName);
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Console.WriteLine(e.Message);
                 goto LastName;
             }
-            EMail:
-            Console.WriteLine("Enter Email");
-            string eMail = Console.ReadLine();
-            if (validate.ValidateEmail(eMail) == false)
+
+        EMail:
+            try
             {
+                Console.WriteLine("Enter Email");
+                string eMail = Console.ReadLine();
+                result = validate.ValidateEmail(eMail);
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Console.WriteLine(e.Message);
                 goto EMail;
             }
-            PhoneNo:
-            Console.WriteLine("Enter Phone No");
-            string phoneNo = Console.ReadLine();
-            if (validate.ValidatePhoneNo(phoneNo) == false)
+
+        PhoneNo:
+            try
             {
+                Console.WriteLine("Enter Phone No");
+                string phoneNo = Console.ReadLine();
+                result = validate.ValidatePhoneNo(phoneNo);
+            }
+            catch(UserRegistrationCustomException e)
+            {
+                Console.WriteLine(e.Message);
                 goto PhoneNo;
             }
-            Password:
-            Console.WriteLine("Enter Password");
-            string password = Console.ReadLine();
-            if (validate.ValidatePassword(password) == false)
+        Password:
+            try
             {
+                Console.WriteLine("Enter Password");
+                string password = Console.ReadLine();
+                result = validate.ValidatePassword(password);
+            }
+            catch(UserRegistrationCustomException e)
+            {
+                Console.WriteLine(e.Message);
                 goto Password;
 
             }
