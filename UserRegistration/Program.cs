@@ -15,6 +15,7 @@ namespace UserRegistration
                 Console.WriteLine("Enter First Name");
                 string firstName = Console.ReadLine();
                 result = validate.ValidateFirstName(firstName);
+                Console.WriteLine(result);
             }
             catch (UserRegistrationCustomException e)
             {
